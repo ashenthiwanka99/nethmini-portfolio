@@ -90,8 +90,73 @@ def variants(im, key, manifest, long_side):
     manifest[key] = {"w": full.width, "h": full.height, "files": files}
 
 
+def cut_portrait(src, S=2):
+    """Cuts the portrait out of its white studio ground with no white fringe: dark hair and blazer on white."""
+    im = Image.open(src).convert("RGB")
+    im = im.resize((im.width * S, im.height * S), Image.LANCZOS)
+    a = np.asarray(im).astype(np.float32)
+    H, W = a.shape[:2]
+    g = 0.299 * a[..., 0] + 0.587 * a[..., 1] + 0.114 * a[..., 2]          # 0..255
+    w = a.min(axis=2)
+
+    # 1. background = the white studio ground reached from the frame, plus the small white gaps between strands
+    #    of hair close to the outline. White well inside the figure (shirt, earrings, highlights) is kept.
+    white = (w > 214).astype(np.uint8)
+    ff = white.copy()
+    mask = np.zeros((H + 2, W + 2), np.uint8)
+    for x, y in [(x, 0) for x in range(0, W, 8)] + [(0, y) for y in range(0, H, 8)] + [(W - 1, y) for y in range(0, H, 8)]:
+        if ff[y, x] == 1:
+            cv2.floodFill(ff, mask, (x, y), 2)
+    outer = (ff == 2).astype(np.uint8)
+    near = cv2.dilate(outer, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (71, 71))) == 1
+    n, lab = cv2.connectedComponents(((white == 1) & (outer == 0)).astype(np.uint8), connectivity=8)
+    gaps = np.unique(lab[near & (lab > 0)])
+    bg = ((outer == 1) | np.isin(lab, gaps)).astype(np.uint8)
+    shirt = ((white == 1) & (bg == 0)).astype(np.uint8)
+    shirt = cv2.dilate(shirt, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9)))
+
+    # 2. the edge band: within a few pixels of any background. Everything on the outline is dark (hair, blazer),
+    #    so there the picture is  seen = alpha * dark + (1 - alpha) * white  and alpha follows from the brightness.
+    k = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (25, 25))
+    band = (cv2.dilate(bg, k) == 1) & (shirt == 0)
+    dark = cv2.erode(g, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (31, 31)))   # local darkest = the hair itself
+    dark = cv2.GaussianBlur(dark, (0, 0), 6)
+    dark = np.minimum(dark, 70.0)
+    alpha_band = np.clip((250.0 - g) / (250.0 - dark), 0, 1)
+    alpha_band = np.clip((alpha_band - 0.06) / 0.94, 0, 1) ** 1.15                # choke a little: no haze
+    alpha = np.where(band, alpha_band, 1.0).astype(np.float32)
+    alpha[bg == 1] = 0.0
+    alpha = cv2.GaussianBlur(alpha, (0, 0), 0.7)
+    alpha[bg == 1] = np.minimum(alpha[bg == 1], 0.0)
+
+    # 3. colour: inside it is the photograph; in the band it is the dark it was made of (never the white behind it)
+    al = np.clip(alpha, 0.02, 1)
+    solved = np.clip((g - (1 - al) * 255.0) / al, 0, 255)                          # brightness with the white taken out
+    edge = np.minimum(solved, dark * 1.5 + 12)
+    # how deep inside the outline we are, 0 at the edge .. 1 well inside
+    inside = cv2.GaussianBlur((~band).astype(np.float32), (0, 0), 4)
+    lum = np.where(band, edge * (1 - inside) + np.minimum(solved, g) * inside, g)
+    lum = np.where(band & (alpha_band < 0.97), edge, lum)   # anything see-through takes the hair's own dark, never a light grey
+
+    # 4. black and white with a touch more contrast; sharpen the inside only
+    lum = lum / 255.0
+    lum = np.clip((lum - 0.5) * 1.12 + 0.5, 0, 1) ** 1.05
+    lum = np.where(band, np.maximum(lum, 0.05), lum)   # the soft edge is never darker than the page it sits on
+    blur = cv2.GaussianBlur(lum, (0, 0), 1.6)
+    sharp = np.clip(lum + 0.55 * (lum - blur), 0, 1)
+    core = cv2.erode((alpha > 0.98).astype(np.uint8), cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))).astype(np.float32)
+    core = cv2.GaussianBlur(core, (0, 0), 3)
+    lum = sharp * core + lum * (1 - core)
+
+    # 5. melt into the page at the bottom
+    fade = np.clip((H - np.arange(H, dtype=np.float32)) / (0.16 * H), 0, 1) ** 1.4
+    alpha = alpha * fade[:, None]
+    g8 = (np.clip(lum, 0, 1) * 255).astype(np.uint8)
+    return Image.fromarray(np.dstack([g8, g8, g8, (np.clip(alpha, 0, 1) * 255).astype(np.uint8)]), "RGBA")
+
+
 def portrait(manifest):
-    """Cuts the portrait out of its white studio ground (the hero scene draws it over black)."""
+    """The plain black-and-white portrait for About, and the cut-out the hero scene draws over black."""
     im = Image.open(os.path.join(SRC, "portrait", "nethmini-perera-portrait.jpeg")).convert("RGB")
     # the plain black-and-white portrait for the About section
     g = im.convert("L")
@@ -103,35 +168,11 @@ def portrait(manifest):
         {"src": "portrait/portrait-bw-640.webp", "w": 640, "h": 1138},
         {"src": "portrait/portrait-bw-1080.webp", "w": 1080, "h": 1920}]}
 
-    S = 2
-    im = im.resize((im.width * S, im.height * S), Image.LANCZOS)
-    a = np.asarray(im).astype(np.float32)
-    w = a.min(axis=2)
-    H, W = w.shape
-    ff = (w > 222).astype(np.uint8)
-    m = np.zeros((H + 2, W + 2), np.uint8)
-    seeds = [(x, 0) for x in range(0, W, 8)] + [(0, y) for y in range(0, H, 8)] + [(W - 1, y) for y in range(0, H, 8)]
-    for x, y in seeds:
-        if ff[y, x] == 1:
-            cv2.floodFill(ff, m, (x, y), 2)
-    bg = (ff == 2).astype(np.uint8)
-    band = cv2.dilate(bg, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (13, 13)))
-    alum = np.clip((240 - w) / 80.0, 0, 1)
-    alpha = cv2.GaussianBlur(np.where(band == 1, alum, 1.0).astype(np.float32), (0, 0), 0.8)
-    alpha[bg == 1] = np.minimum(alpha[bg == 1], alum[bg == 1])
-    al = np.clip(alpha, 1e-3, 1)[..., None]
-    rgb = np.clip((a - (1 - al) * 255.0) / al, 0, 255)  # take the white out of the soft edge
-    # let the figure melt into the page at the bottom instead of ending on a hard edge
-    fade = np.clip((H - np.arange(H, dtype=np.float32)) / (0.16 * H), 0, 1) ** 1.4
-    alpha = alpha * fade[:, None]
-    g = (0.299 * rgb[..., 0] + 0.587 * rgb[..., 1] + 0.114 * rgb[..., 2]) / 255.0
-    g = np.clip((g - 0.5) * 1.12 + 0.5, 0, 1) ** 1.05
-    g8 = (g * 255).astype(np.uint8)
-    cut = Image.fromarray(np.dstack([g8, g8, g8, (alpha * 255).astype(np.uint8)]), "RGBA")
-    cut = cut.filter(ImageFilter.UnsharpMask(radius=1.6, percent=60, threshold=2))
+    cut = cut_portrait(os.path.join(SRC, "portrait", "nethmini-perera-portrait.jpeg"))
+    W, H = cut.size
     for tw in (720, 1440):
         v = cut if tw == W else cut.resize((tw, round(H * tw / W)), Image.LANCZOS)
-        v.save(os.path.join(OUT, "portrait", f"portrait-cut-{tw}.webp"), "WEBP", quality=94, method=6, alpha_quality=100)
+        v.save(os.path.join(OUT, "portrait", f"portrait-cut-{tw}.webp"), "WEBP", quality=95, method=6, alpha_quality=100)
     manifest["portrait/portrait-cut"] = {"w": W, "h": H}
 
 
