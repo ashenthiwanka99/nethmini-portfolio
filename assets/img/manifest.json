@@ -1,0 +1,602 @@
+{
+ "print/wok-food": {
+  "w": 1571,
+  "h": 2200,
+  "files": [
+   {
+    "src": "print/wok-food-640.webp",
+    "w": 640,
+    "h": 896
+   },
+   {
+    "src": "print/wok-food-1200.webp",
+    "w": 1200,
+    "h": 1680
+   },
+   {
+    "src": "print/wok-food-1571.webp",
+    "w": 1571,
+    "h": 2200
+   }
+  ]
+ },
+ "print/kola-kenda": {
+  "w": 1467,
+  "h": 2200,
+  "files": [
+   {
+    "src": "print/kola-kenda-640.webp",
+    "w": 640,
+    "h": 960
+   },
+   {
+    "src": "print/kola-kenda-1200.webp",
+    "w": 1200,
+    "h": 1800
+   },
+   {
+    "src": "print/kola-kenda-1467.webp",
+    "w": 1467,
+    "h": 2200
+   }
+  ]
+ },
+ "print/bath-menu": {
+  "w": 1257,
+  "h": 2200,
+  "files": [
+   {
+    "src": "print/bath-menu-640.webp",
+    "w": 640,
+    "h": 1120
+   },
+   {
+    "src": "print/bath-menu-1257.webp",
+    "w": 1257,
+    "h": 2200
+   }
+  ]
+ },
+ "print/maths-class": {
+  "w": 2400,
+  "h": 1920,
+  "files": [
+   {
+    "src": "print/maths-class-640.webp",
+    "w": 640,
+    "h": 512
+   },
+   {
+    "src": "print/maths-class-1200.webp",
+    "w": 1200,
+    "h": 960
+   },
+   {
+    "src": "print/maths-class-2400.webp",
+    "w": 2400,
+    "h": 1920
+   }
+  ]
+ },
+ "social/jedel-gaming-mouse-pad": {
+  "w": 1600,
+  "h": 1600,
+  "files": [
+   {
+    "src": "social/jedel-gaming-mouse-pad-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "social/jedel-gaming-mouse-pad-1200.webp",
+    "w": 1200,
+    "h": 1200
+   },
+   {
+    "src": "social/jedel-gaming-mouse-pad-1600.webp",
+    "w": 1600,
+    "h": 1600
+   }
+  ]
+ },
+ "social/jedel-smooth-mouse-pad": {
+  "w": 1600,
+  "h": 1600,
+  "files": [
+   {
+    "src": "social/jedel-smooth-mouse-pad-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "social/jedel-smooth-mouse-pad-1200.webp",
+    "w": 1200,
+    "h": 1200
+   },
+   {
+    "src": "social/jedel-smooth-mouse-pad-1600.webp",
+    "w": 1600,
+    "h": 1600
+   }
+  ]
+ },
+ "social/jedel-faster-keyboard": {
+  "w": 1080,
+  "h": 1080,
+  "files": [
+   {
+    "src": "social/jedel-faster-keyboard-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "social/jedel-faster-keyboard-1080.webp",
+    "w": 1080,
+    "h": 1080
+   }
+  ]
+ },
+ "social/mixx-art-grow": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "social/mixx-art-grow-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "social/mixx-art-grow-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "social/mixx-art-boost": {
+  "w": 1080,
+  "h": 1080,
+  "files": [
+   {
+    "src": "social/mixx-art-boost-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "social/mixx-art-boost-1080.webp",
+    "w": 1080,
+    "h": 1080
+   }
+  ]
+ },
+ "social/cake-bake-brown": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "social/cake-bake-brown-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "social/cake-bake-brown-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "social/cake-bake-peach": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "social/cake-bake-peach-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "social/cake-bake-peach-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "social/klarheit-germany": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "social/klarheit-germany-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "social/klarheit-germany-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "social/bsm-campus": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "social/bsm-campus-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "social/bsm-campus-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "social/rathnaweera-sewing": {
+  "w": 671,
+  "h": 670,
+  "files": [
+   {
+    "src": "social/rathnaweera-sewing-671.webp",
+    "w": 671,
+    "h": 670
+   }
+  ]
+ },
+ "forest-heaven/life-with-nature": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "forest-heaven/life-with-nature-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "forest-heaven/life-with-nature-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "forest-heaven/eco-life": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "forest-heaven/eco-life-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "forest-heaven/eco-life-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "forest-heaven/night-cabin": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "forest-heaven/night-cabin-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "forest-heaven/night-cabin-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "forest-heaven/green-retreat": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "forest-heaven/green-retreat-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "forest-heaven/green-retreat-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "forest-heaven/best-relaxation": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "forest-heaven/best-relaxation-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "forest-heaven/best-relaxation-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "forest-heaven/bakers-bend": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "forest-heaven/bakers-bend-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "forest-heaven/bakers-bend-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "forest-heaven/leopards": {
+  "w": 1024,
+  "h": 1280,
+  "files": [
+   {
+    "src": "forest-heaven/leopards-640.webp",
+    "w": 640,
+    "h": 800
+   },
+   {
+    "src": "forest-heaven/leopards-1024.webp",
+    "w": 1024,
+    "h": 1280
+   }
+  ]
+ },
+ "forest-heaven/samanalawewa": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "forest-heaven/samanalawewa-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "forest-heaven/samanalawewa-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "forest-heaven/horton-plains": {
+  "w": 1024,
+  "h": 1280,
+  "files": [
+   {
+    "src": "forest-heaven/horton-plains-640.webp",
+    "w": 640,
+    "h": 800
+   },
+   {
+    "src": "forest-heaven/horton-plains-1024.webp",
+    "w": 1024,
+    "h": 1280
+   }
+  ]
+ },
+ "forest-heaven/pahantudawa": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "forest-heaven/pahantudawa-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "forest-heaven/pahantudawa-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "forest-heaven/devils-staircase": {
+  "w": 1280,
+  "h": 1280,
+  "files": [
+   {
+    "src": "forest-heaven/devils-staircase-640.webp",
+    "w": 640,
+    "h": 640
+   },
+   {
+    "src": "forest-heaven/devils-staircase-1280.webp",
+    "w": 1280,
+    "h": 1280
+   }
+  ]
+ },
+ "posters/break-the-silence": {
+  "w": 735,
+  "h": 1040,
+  "files": [
+   {
+    "src": "posters/break-the-silence-640.webp",
+    "w": 640,
+    "h": 906
+   },
+   {
+    "src": "posters/break-the-silence-735.webp",
+    "w": 735,
+    "h": 1040
+   }
+  ]
+ },
+ "posters/magazine-cover-study": {
+  "w": 844,
+  "h": 1280,
+  "files": [
+   {
+    "src": "posters/magazine-cover-study-640.webp",
+    "w": 640,
+    "h": 971
+   },
+   {
+    "src": "posters/magazine-cover-study-844.webp",
+    "w": 844,
+    "h": 1280
+   }
+  ]
+ },
+ "posters/magazine-layout-study": {
+  "w": 595,
+  "h": 842,
+  "files": [
+   {
+    "src": "posters/magazine-layout-study-595.webp",
+    "w": 595,
+    "h": 842
+   }
+  ]
+ },
+ "posters/typographic-portrait": {
+  "w": 1697,
+  "h": 2400,
+  "files": [
+   {
+    "src": "posters/typographic-portrait-640.webp",
+    "w": 640,
+    "h": 905
+   },
+   {
+    "src": "posters/typographic-portrait-1200.webp",
+    "w": 1200,
+    "h": 1697
+   },
+   {
+    "src": "posters/typographic-portrait-1697.webp",
+    "w": 1697,
+    "h": 2400
+   }
+  ]
+ },
+ "posters/warrior-tee-white": {
+  "w": 1280,
+  "h": 960,
+  "files": [
+   {
+    "src": "posters/warrior-tee-white-640.webp",
+    "w": 640,
+    "h": 480
+   },
+   {
+    "src": "posters/warrior-tee-white-1280.webp",
+    "w": 1280,
+    "h": 960
+   }
+  ]
+ },
+ "posters/warrior-tee-black": {
+  "w": 1280,
+  "h": 960,
+  "files": [
+   {
+    "src": "posters/warrior-tee-black-640.webp",
+    "w": 640,
+    "h": 480
+   },
+   {
+    "src": "posters/warrior-tee-black-1280.webp",
+    "w": 1280,
+    "h": 960
+   }
+  ]
+ },
+ "photoshop/double-exposure-forest": {
+  "w": 861,
+  "h": 1280,
+  "files": [
+   {
+    "src": "photoshop/double-exposure-forest-640.webp",
+    "w": 640,
+    "h": 951
+   },
+   {
+    "src": "photoshop/double-exposure-forest-861.webp",
+    "w": 861,
+    "h": 1280
+   }
+  ]
+ },
+ "photoshop/double-exposure-mountain": {
+  "w": 1280,
+  "h": 861,
+  "files": [
+   {
+    "src": "photoshop/double-exposure-mountain-640.webp",
+    "w": 640,
+    "h": 430
+   },
+   {
+    "src": "photoshop/double-exposure-mountain-1280.webp",
+    "w": 1280,
+    "h": 861
+   }
+  ]
+ },
+ "portrait/portrait-bw": {
+  "w": 1080,
+  "h": 1920,
+  "files": [
+   {
+    "src": "portrait/portrait-bw-640.webp",
+    "w": 640,
+    "h": 1138
+   },
+   {
+    "src": "portrait/portrait-bw-1080.webp",
+    "w": 1080,
+    "h": 1920
+   }
+  ]
+ },
+ "portrait/portrait-cut": {
+  "w": 1440,
+  "h": 2560
+ },
+ "photoshop/before": {
+  "w": 1280,
+  "h": 1600,
+  "files": [
+   {
+    "src": "photoshop/before-640.webp",
+    "w": 640,
+    "h": 800
+   },
+   {
+    "src": "photoshop/before-1280.webp",
+    "w": 1280,
+    "h": 1600
+   }
+  ]
+ },
+ "photoshop/after": {
+  "w": 1280,
+  "h": 1600,
+  "files": [
+   {
+    "src": "photoshop/after-640.webp",
+    "w": 640,
+    "h": 800
+   },
+   {
+    "src": "photoshop/after-1280.webp",
+    "w": 1280,
+    "h": 1600
+   }
+  ]
+ }
+}

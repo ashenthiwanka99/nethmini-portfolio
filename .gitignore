@@ -1,0 +1,6 @@
+# private originals: includes the CV with phone number and home address
+source/
+# working files
+.taste-skill/
+preview-standalone.html
+__pycache__/
