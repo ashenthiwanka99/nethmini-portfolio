@@ -90,6 +90,11 @@ h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; f
 .btn:hover { background: #c9162c; }
 .btn:hover svg { transform: translateY(3px); }
 .btn:active { transform: scale(0.97); }
+.btn--light { background: var(--ink); color: var(--bg); }
+.btn--light:hover { background: #ffffff; }
+.btn--light:hover svg, .about__cv:hover svg { transform: translateY(2px); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.about__cv { margin-top: 28px; }
 
 .section { padding: var(--sec) var(--m) 0; }
 .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); }
@@ -343,6 +348,8 @@ a.contact__row.contact__go:hover { background: #c9162c; color: var(--accent-ink)
 .contact__arrow { width: 0.9em; height: 0.9em; border-radius: 50%; background: var(--accent-ink); color: var(--accent); display: grid; place-items: center; flex: none; transition: transform 0.4s var(--ease); }
 .contact__go:hover .contact__arrow { transform: rotate(45deg); }
 .contact__arrow svg { width: 46%; height: 46%; }
+.contact__arrow--dl { background: var(--ink); color: var(--bg); }
+a.contact__row:hover .contact__arrow--dl { background: var(--bg); color: var(--ink); }
 
 /* ---------- footer ---------- */
 .foot { --fp: 1; background: var(--field); color: var(--field-ink); display: grid; row-gap: clamp(72px, 13vw, 200px); padding: 48px var(--m) 20px; overflow: clip; }
