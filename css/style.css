@@ -86,6 +86,7 @@ h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; f
   padding: 15px 24px; text-decoration: none; font-weight: 500;
   transition: transform 0.25s var(--ease), background-color 0.25s;
 }
+.btn { white-space: nowrap; }
 .btn svg { transition: transform 0.25s var(--ease); }
 .btn:hover { background: #c9162c; }
 .btn:hover svg { transform: translateY(3px); }
@@ -121,6 +122,13 @@ h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; f
 .nav .nav__cta::after { display: none; }
 .nav .nav__cta { background: var(--accent); color: var(--accent-ink); padding: 10px 18px; font-weight: 500; transition: background-color 0.25s, transform 0.25s var(--ease); }
 .nav .nav__cta:hover { background: #c9162c; }
+.nav { left: 0; }
+.nav .nav__mark { margin-right: auto; display: grid; place-items: center; width: 46px; height: 46px; padding: 0; background: var(--ink); color: var(--bg); font-family: var(--display); font-size: 1.25rem; letter-spacing: 0.02em; transition: background-color 0.25s, color 0.25s, transform 0.4s var(--ease); }
+.nav .nav__mark::after { display: none; }
+.nav .nav__mark:hover { background: var(--accent); color: var(--accent-ink); transform: rotate(-8deg); }
+.nav .nav__cv { display: inline-flex; align-items: center; gap: 6px; }
+.nav .nav__cv svg { transition: transform 0.25s var(--ease); }
+.nav .nav__cv:hover svg { transform: translateY(2px); }
 
 .name {
   position: absolute; z-index: 3;
@@ -150,8 +158,9 @@ h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; f
 .figure__cut { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero--gl .figure__cut { visibility: hidden; }
 
-.hero__copy { position: absolute; z-index: 4; left: var(--m); top: 24px; max-width: 27rem; }
-.hero__copy p { font-size: var(--step-lead); line-height: 1.25; margin-bottom: 20px; }
+/* sits in the space left of the ring: the ring starts about 20% across at every desktop size */
+.hero__copy { position: absolute; z-index: 4; left: var(--m); bottom: var(--m); width: clamp(160px, 16vw, 19rem); }
+.hero__copy p { font-size: clamp(1rem, 1.35vw, 1.5rem); line-height: 1.3; margin-bottom: 18px; }
 .js .hero__copy, .js .nav { opacity: 0; transition: opacity 0.8s ease 0.5s; }
 .is-ready .hero__copy, .is-ready .nav { opacity: 1; }
 
@@ -400,11 +409,14 @@ html.lenis, html.lenis body { height: auto; }
   .nav { position: relative; padding: 14px var(--m); justify-content: space-between; grid-row: 1; }
   .nav a:not(.nav__keep) { display: none; }
   .nav a { padding: 12px 0; }
+  .nav { gap: 20px; }
+  .nav .nav__mark { width: 42px; height: 42px; padding: 0; }
   .nav .nav__cta { padding: 12px 18px; }
   .name { grid-row: 2; position: relative; left: auto; right: auto; top: auto; margin: 4px var(--m) 0; display: block; transform: none; }
   .name__a, .name__b { transform: none; }
-  .hero__copy { grid-row: 3; position: relative; left: auto; top: auto; margin: 16px var(--m) 0; max-width: none; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
-  .hero__copy p { margin: 0; flex: 1 1 15rem; }
+  .hero__copy { grid-row: 3; position: relative; left: auto; top: auto; bottom: auto; margin: 16px var(--m) 0; max-width: none; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
+  .hero__copy { width: auto; }
+  .hero__copy p { margin: 0; flex: 1 1 15rem; font-size: var(--step-lead); }
   .figure { grid-row: 4; position: relative; left: auto; top: auto; justify-self: center; align-self: start; --fw: min(70vw, 28rem); margin-top: 4px; transform: none; }
 
   .profile h2 { grid-column: 1 / -1; }
